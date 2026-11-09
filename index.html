@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luna's Dental Studio | Premium Dental Care</title>
+    <meta name="description" content="Luna's Dental Studio — Elevating dental care to an art form. Thoughtful care, bespoke aesthetic dentistry, and comfortable treatments.">
+    
+    <!-- Open Graph / Meta -->
+    <meta property="og:title" content="Luna's Dental Studio | Premium Dental Care">
+    <meta property="og:description" content="Thoughtful dental care meets modern aesthetics. Discover a highly personal approach to healthy, confident, and beautiful smiles.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&q=80&w=1200">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+    
+    <noscript>
+        <style>
+            .reveal-up, .reveal-scale { opacity: 1 !important; transform: none !important; }
+        </style>
+    </noscript>
+    
+    <!-- Premium Editorial Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           1. CSS VARIABLES & RESET
+           ========================================= */
+        :root {
+            /* Palette */
+            --c-ivory: #FAF9F6;
+            --c-sage: #A9B5A0;
+            --c-forest: #34483D;
+            --c-champagne: #D9C9B5;
+            --c-charcoal: #343632;
+            --c-white: #FFFFFF;
+            
+            /* Typography */
+            --f-serif: 'Cormorant Garamond', serif;
+            --f-sans: 'Manrope', sans-serif;
+            
+            /* Spacing & Layout */
+            --spacing-section: clamp(5rem, 12vw, 12rem);
+            --container-px: clamp(1.25rem, 4vw, 3rem);
+            --container-width: 1400px;
+            
+            /* Transitions */
+            --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--c-ivory);
+            font-size: 16px; /* Base size */
+            scroll-padding-top: clamp(80px, 10vh, 120px); /* Ensures sticky nav doesn't cover anchor links */
+        }
+
+        body {
+            font-family: var(--f-sans);
+            color: var(--c-charcoal);
+            background-color: var(--c-ivory);
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        img, picture, svg {
+            display: block;
+            max-width: 100%;
+            height: auto;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        button {
+            border: none;
+            background: none;
+            font: inherit;
+            cursor: pointer;
+        }
+        
+        button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+            outline: 2px solid var(--c-forest);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        /* Container */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--container-px);
+        }
+
+        /* =========================================
+           2. TYPOGRAPHY & UTILITIES
+           ========================================= */
+        h1, h2, h3, h4, h5, h6, .font-serif {
+            font-family: var(--f-serif);
+            color: var(--c-forest);
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        .heading-hero {
+            font-size: clamp(3.5rem, 9vw, 8.5rem);
+            letter-spacing: -0.02em;
+        }
+
+        .heading-section {
+            font-size: clamp(2.5rem, 6vw, 5.5rem);
+            letter-spacing: -0.01em;
+            margin-bottom: clamp(2rem, 4vw, 3rem);
+        }
+
+        .eyebrow {
+            display: block;
+            font-size: clamp(0.65rem, 1.5vw, 0.75rem);
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--c-forest); /* WCAG AA Contrast Improvement */
+            opacity: 0.85;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .text-body {
+            font-size: clamp(1rem, 1.2vw, 1.125rem);
+            color: rgba(52, 54, 50, 0.85);
+            max-width: 50ch;
+        }
+        
+        .italic-accent {
+            font-style: italic;
+            color: var(--c-sage);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(1rem, 2vw, 1.25rem) clamp(2rem, 4vw, 3rem);
+            background-color: var(--c-forest);
+            color: var(--c-ivory);
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--c-sage);
+            color: var(--c-white);
+        }
+
+        /* Interaction Observers */
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s cubic-bezier(0.2, 1, 0.3, 1), transform 1s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+        
+        .reveal-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .img-mask {
+            overflow: hidden;
+            display: block;
+        }
+
+        .reveal-scale {
+            transform: scale(1.08);
+            transition: transform 1.5s var(--ease-out-expo);
+        }
+
+        .reveal-scale.is-visible {
+            transform: scale(1);
+        }
+
+        /* =========================================
+           3. NAVIGATION
+           ========================================= */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: clamp(1rem, 2vw, 2rem) 0;
+            transition: background-color 0.4s ease, padding 0.4s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: var(--c-ivory);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--c-champagne);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 101;
+        }
+
+        .logo-main {
+            font-family: var(--f-serif);
+            font-size: clamp(1.25rem, 2vw, 1.75rem);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--c-forest);
+        }
+
+        .logo-sub {
+            font-size: 0.5rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--c-sage);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: clamp(2rem, 3vw, 4rem);
+        }
+
+        .nav-links a {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 500;
+            transition: color 0.3s;
+            color: var(--c-forest);
+        }
+
+        .nav-links a:hover { color: var(--c-sage); }
+
+        .menu-toggle {
+            display: none;
+            width: 30px;
+            height: 20px;
+            position: relative;
+            z-index: 101;
+        }
+
+        .menu-toggle span {
+            display: block;
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            background: var(--c-forest);
+            transition: 0.3s var(--ease-in-out);
+        }
+
+        .menu-toggle span:nth-child(1) { top: 0; }
+        .menu-toggle span:nth-child(2) { top: 9px; }
+        .menu-toggle span:nth-child(3) { top: 18px; }
+
+        body.menu-open .menu-toggle span:nth-child(1) {
+            top: 9px;
+            transform: rotate(45deg);
+        }
+        body.menu-open .menu-toggle span:nth-child(2) {
+            opacity: 0;
+        }
+        body.menu-open .menu-toggle span:nth-child(3) {
+            top: 9px;
+            transform: rotate(-45deg);
+        }
+
+        /* =========================================
+           4. HERO SECTION
+           ========================================= */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 100px;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: clamp(2rem, 5vw, 6rem);
+            align-items: center;
+        }
+
+        .hero-content {
+            padding-right: 2rem;
+            z-index: 2;
+        }
+
+        .hero-content h1 { margin-bottom: 2rem; }
+        .hero-content h1 span {
+            display: block;
+            margin-left: clamp(1rem, 5vw, 4rem);
+        }
+
+        .hero-content p {
+            margin-bottom: 3rem;
+            margin-left: clamp(1rem, 5vw, 4rem);
+        }
+
+        .hero-actions { margin-left: clamp(1rem, 5vw, 4rem); }
+
+        .hero-img-wrapper {
+            position: relative;
+            aspect-ratio: 4/5;
+            width: 100%;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-accent {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            width: 40%;
+            height: 40%;
+            background-color: var(--c-champagne);
+            z-index: -1;
+        }
+
+        /* =========================================
+           5. TRUST STRIP
+           ========================================= */
+        .trust-strip {
+            border-top: 1px solid var(--c-champagne);
+            border-bottom: 1px solid var(--c-champagne);
+            padding: clamp(1.5rem, 3vw, 2.5rem) 0;
+            background-color: var(--c-ivory);
+        }
+
+        .trust-grid {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .trust-item {
+            font-size: clamp(0.6rem, 1.2vw, 0.65rem);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--c-forest);
+        }
+
+        .trust-dot { color: var(--c-forest); font-size: 0.5rem; opacity: 0.5; } /* Better contrast than sage */
+
+        /* =========================================
+           6. ABOUT SECTION
+           ========================================= */
+        .about {
+            padding: var(--spacing-section) 0;
+            background-color: var(--c-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(3rem, 8vw, 8rem);
+            align-items: center;
+        }
+
+        .about-images {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            align-items: end;
+        }
+
+        .about-img-main {
+            grid-column: 1 / 10;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            width: 100%;
+        }
+
+        .about-img-sub {
+            grid-column: 7 / -1;
+            margin-bottom: -15%;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            width: 100%;
+            border: 1px solid var(--c-champagne);
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-content { padding-top: 2rem; }
+
+        .about-values {
+            margin-top: 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .value-item {
+            display: grid;
+            grid-template-columns: 40px 1fr;
+            align-items: baseline;
+            gap: 1rem;
+            font-family: var(--f-serif);
+            font-size: clamp(1.25rem, 2vw, 1.75rem);
+            color: var(--c-forest);
+            border-bottom: 1px solid var(--c-champagne);
+            padding-bottom: 1rem;
+        }
+
+        .value-item span {
+            color: var(--c-sage);
+            font-size: 0.85rem;
+            font-family: var(--f-sans);
+        }
+
+        /* =========================================
+           7. TREATMENTS LIST (Editorial)
+           ========================================= */
+        .treatments {
+            padding: var(--spacing-section) 0;
+            background-color: var(--c-ivory);
+        }
+
+        .treatments-header {
+            max-width: 700px;
+            margin-bottom: clamp(4rem, 8vw, 6rem);
+        }
+
+        .treatment-list {
+            border-top: 1px solid var(--c-champagne);
+        }
+
+        .treatment-item {
+            display: grid;
+            grid-template-columns: 60px 1.5fr 2fr auto;
+            gap: 2rem;
+            align-items: center;
+            padding: clamp(2rem, 4vw, 3.5rem) 0;
+            border-bottom: 1px solid var(--c-champagne);
+            transition: background-color 0.3s ease;
+        }
+
+        .treatment-item:hover {
+            background-color: rgba(217, 201, 181, 0.1);
+        }
+
+        .t-num {
+            font-family: var(--f-serif);
+            font-size: 1.25rem;
+            font-style: italic;
+            color: var(--c-sage);
+        }
+
+        .treatment-item h3 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+        }
+
+        .treatment-item p {
+            font-size: 0.95rem;
+            color: rgba(52, 54, 50, 0.7);
+            max-width: 40ch;
+        }
+
+        .t-link {
+            display: inline-flex;
+            align-items: center;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--c-forest);
+        }
+
+        .t-link::after {
+            content: '→';
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .t-link:hover::after { transform: translateX(5px); }
+
+        /* =========================================
+           8. TESTIMONIAL SLIDER
+           ========================================= */
+        .testimonials {
+            padding: var(--spacing-section) 0;
+            background-color: var(--c-white);
+            text-align: center;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .slide {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -40%);
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.8s ease;
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translate(-50%, -50%);
+        }
+
+        .slide blockquote {
+            font-family: var(--f-serif);
+            font-size: clamp(1.75rem, 4vw, 3rem);
+            color: var(--c-forest);
+            margin-bottom: 2rem;
+            font-style: italic;
+            line-height: 1.2;
+        }
+
+        .slide cite {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            font-style: normal;
+            font-weight: 600;
+            color: var(--c-charcoal);
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: clamp(2rem, 5vw, 4rem);
+        }
+
+        .slider-btn {
+            border: 1px solid var(--c-champagne);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%; /* Only place radius is used for UI consistency */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--c-forest);
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .slider-btn:hover {
+            background-color: var(--c-forest);
+            color: var(--c-ivory);
+            border-color: var(--c-forest);
+        }
+
+        /* =========================================
+           9. CONTACT & FORM
+           ========================================= */
+        .contact {
+            padding: var(--spacing-section) 0;
+            background-color: var(--c-ivory);
+            border-top: 1px solid var(--c-champagne);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: clamp(4rem, 8vw, 10rem);
+        }
+
+        .contact-info-blocks {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .info-block h4 {
+            font-family: var(--f-sans);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--c-sage);
+            margin-bottom: 0.75rem;
+        }
+
+        .info-block p, .info-block a {
+            font-family: var(--f-serif);
+            font-size: clamp(1.25rem, 2vw, 1.75rem);
+            color: var(--c-forest);
+        }
+        
+        .info-block a:hover { color: var(--c-sage); }
+
+        .contact-form {
+            background-color: var(--c-white);
+            padding: clamp(2rem, 5vw, 4rem);
+            border: 1px solid var(--c-champagne);
+            position: relative;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 1rem 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--c-champagne);
+            font-family: var(--f-serif);
+            font-size: 1.25rem;
+            color: var(--c-forest);
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus { border-bottom-color: var(--c-forest); }
+
+        .form-label {
+            position: absolute;
+            top: 1rem;
+            left: 0;
+            font-size: 0.95rem;
+            color: rgba(52, 54, 50, 0.5);
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        /* Float label up */
+        .form-control:focus ~ .form-label,
+        .form-control:not(:placeholder-shown) ~ .form-label,
+        select.form-control:focus ~ .form-label,
+        select.form-control.has-value ~ .form-label {
+            top: -0.75rem;
+            font-size: 0.65rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--c-sage);
+        }
+
+        select.form-control {
+            appearance: none;
+            cursor: pointer;
+        }
+
+        textarea.form-control {
+            resize: none;
+            height: 60px;
+        }
+
+        .contact-form .btn { width: 100%; margin-top: 1rem; }
+
+        .form-success {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--c-white);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .form-success.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .form-success h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        /* =========================================
+           10. FOOTER
+           ========================================= */
+        .footer {
+            background-color: var(--c-forest);
+            color: var(--c-ivory);
+            padding: 6rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+        }
+
+        .footer-brand .logo-main { color: var(--c-ivory); }
+        .footer-brand p {
+            color: rgba(250, 249, 246, 0.7);
+            margin-top: 2rem;
+            max-width: 35ch;
+            font-size: 0.95rem;
+        }
+
+        .footer-links h4 {
+            color: var(--c-sage);
+            font-family: var(--f-sans);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links ul li { margin-bottom: 1rem; }
+
+        .footer-links a {
+            color: rgba(250, 249, 246, 0.8);
+            font-family: var(--f-serif);
+            font-size: 1.15rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--c-champagne); }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(250, 249, 246, 0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: rgba(250, 249, 246, 0.5);
+        }
+
+        /* =========================================
+           11. RESPONSIVE AUDIT (Desktop to 375px)
+           ========================================= */
+        @media (max-width: 1024px) { /* Tablet / iPad Pro */
+            .hero-grid, .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-img-wrapper { aspect-ratio: 1/1; max-width: 700px; margin: 0 auto; }
+            .hero-content { padding-right: 0; text-align: center; }
+            .hero-content h1 span, .hero-content p, .hero-actions { margin-left: auto; margin-right: auto; }
+            .about-images { max-width: 700px; margin: 0 auto 3rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) { /* Tablet Portrait / Large Mobile */
+            /* Navbar Mobile */
+            .nav-btn { display: none; }
+            .menu-toggle { display: block; }
+            
+            .nav-links {
+                position: fixed;
+                top: 0; left: 0; width: 100%; height: 100vh;
+                background-color: var(--c-ivory);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2.5rem;
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.4s var(--ease-in-out);
+                pointer-events: none;
+            }
+            
+            body.menu-open .nav-links {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
+
+            .nav-links a { font-size: 1.75rem; font-family: var(--f-serif); text-transform: none; letter-spacing: 0; }
+
+            /* Specific component fixes */
+            .treatment-item {
+                grid-template-columns: 1fr;
+                gap: 0.75rem;
+                padding: 2.5rem 0;
+            }
+            .t-num { margin-bottom: 0.5rem; }
+            .t-link { margin-top: 1.5rem; }
+
+            .trust-grid { flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
+            .trust-dot { display: none; }
+            
+            .footer-grid { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+
+        @media (max-width: 430px) { /* iPhone Max / Generic Mobile */
+            :root { --container-px: 1.5rem; --spacing-section: 6rem; }
+            .about-images { grid-template-columns: 1fr; }
+            .about-img-main { grid-column: 1 / -1; }
+            .about-img-sub { display: none; }
+            .slider-controls { gap: 1rem; margin-top: 2rem; }
+            .btn { width: 100%; text-align: center; }
+            .contact-form { padding: 2rem; }
+        }
+
+        @media (max-width: 390px) { /* iPhone 12/13/14 Pro */
+            .heading-hero { font-size: 3.5rem; }
+            .heading-section { font-size: 2.5rem; }
+            .text-body { font-size: 1rem; }
+        }
+
+        @media (max-width: 375px) { /* iPhone SE / Mini */
+            :root { --container-px: 1.25rem; --spacing-section: 5rem; }
+            .heading-hero { font-size: 3rem; }
+            .heading-section { font-size: 2.25rem; }
+            .contact-form { padding: 1.5rem; border: none; border-top: 1px solid var(--c-champagne); }
+            .hero-actions { display: flex; flex-direction: column; width: 100%; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .reveal-up, .reveal-scale {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#home" class="logo" aria-label="Luna's Dental Studio Home">
+                <span class="logo-main">Luna's</span>
+                <span class="logo-sub">Dental Studio</span>
+            </a>
+
+            <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
+                <a href="#about">Philosophy</a>
+                <a href="#treatments">Treatments</a>
+                <a href="#testimonials">Experience</a>
+                <a href="#contact">Contact</a>
+                <a href="#contact" class="btn nav-btn">Reserve Visit</a>
+            </nav>
+
+            <button class="menu-toggle" id="mobile-menu-btn" aria-label="Toggle Menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO -->
+        <section class="hero" id="home">
+            <div class="container hero-grid">
+                <div class="hero-content reveal-up">
+                    <span class="eyebrow">Care that feels different</span>
+                    <h1 class="heading-hero">Your Smile,<br><span class="italic-accent">Our Signature.</span></h1>
+                    <p class="text-body">Thoughtful dental care meets modern aesthetics. Discover a highly personal approach to healthy, confident, and beautiful smiles.</p>
+                    <div class="hero-actions">
+                        <a href="#contact" class="btn">Begin Your Journey</a>
+                    </div>
+                </div>
+                <div class="hero-img-wrapper img-mask">
+                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&q=80&w=1200" alt="Woman displaying a natural, confident smile in warm lighting" class="hero-img reveal-scale" fetchpriority="high">
+                    <div class="hero-accent"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRUST STRIP -->
+        <div class="trust-strip">
+            <div class="container trust-grid reveal-up">
+                <span class="trust-item">Internationally Trained Experts</span>
+                <span class="trust-dot" aria-hidden="true">•</span>
+                <span class="trust-item">Bespoke Treatment Architecture</span>
+                <span class="trust-dot" aria-hidden="true">•</span>
+                <span class="trust-item">Advanced Clinical Precision</span>
+                <span class="trust-dot" aria-hidden="true">•</span>
+                <span class="trust-item">Uncompromised Comfort</span>
+            </div>
+        </div>
+
+        <!-- ABOUT -->
+        <section class="about" id="about">
+            <div class="container about-grid">
+                <div class="about-images">
+                    <div class="about-img-main img-mask">
+                        <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=1000" alt="Minimalist architectural detail of the dental studio" class="reveal-scale" loading="lazy">
+                    </div>
+                    <div class="about-img-sub img-mask">
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800" alt="Calming, warm interior of the clinic treatment room" class="reveal-scale" loading="lazy">
+                    </div>
+                </div>
+                <div class="about-content reveal-up">
+                    <span class="eyebrow">Our Philosophy</span>
+                    <h2 class="heading-section">A Little More Care.<br><span class="italic-accent">A Lot More Confidence.</span></h2>
+                    <p class="text-body">At Luna's, we believe a great dental experience begins with feeling understood. Our approach rejects clinical sterility, combining thoughtful care, advanced aesthetic techniques, and a deeply personal touch.</p>
+                    
+                    <div class="about-values">
+                        <div class="value-item"><span>01</span> Care Without Compromise</div>
+                        <div class="value-item"><span>02</span> Comfort in Every Detail</div>
+                        <div class="value-item"><span>03</span> Confidence Through Expertise</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TREATMENTS (Editorial List) -->
+        <section class="treatments" id="treatments">
+            <div class="container">
+                <div class="treatments-header reveal-up">
+                    <span class="eyebrow">Our Services</span>
+                    <h2 class="heading-section">Beautiful Smiles,<br><span class="italic-accent">Thoughtfully Created.</span></h2>
+                </div>
+
+                <ul class="treatment-list">
+                    <li class="treatment-item reveal-up">
+                        <span class="t-num">01</span>
+                        <h3>Teeth Whitening</h3>
+                        <p>Professional, light-activated whitening treatments designed for a naturally radiant, brighter-looking smile without sensitivity.</p>
+                        <a href="#contact" class="t-link" aria-label="Discover more about Teeth Whitening">Discover More</a>
+                    </li>
+                    <li class="treatment-item reveal-up">
+                        <span class="t-num">02</span>
+                        <h3>Smile Makeovers</h3>
+                        <p>Comprehensive cosmetic enhancements tailored to your facial symmetry, seamlessly blending veneers, bonding, and contouring.</p>
+                        <a href="#contact" class="t-link" aria-label="Discover more about Smile Makeovers">Discover More</a>
+                    </li>
+                    <li class="treatment-item reveal-up">
+                        <span class="t-num">03</span>
+                        <h3>Dental Implants</h3>
+                        <p>Architecturally precise tooth replacement solutions crafted to integrate flawlessly with your natural biology.</p>
+                        <a href="#contact" class="t-link" aria-label="Discover more about Dental Implants">Discover More</a>
+                    </li>
+                    <li class="treatment-item reveal-up">
+                        <span class="t-num">04</span>
+                        <h3>Clear Aligners</h3>
+                        <p>Virtually invisible orthodontic alignment, offering a discreet path to perfect symmetry and functional harmony.</p>
+                        <a href="#contact" class="t-link" aria-label="Discover more about Clear Aligners">Discover More</a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS -->
+        <section class="testimonials" id="testimonials">
+            <div class="container reveal-up">
+                <span class="eyebrow">Patient Stories</span>
+                
+                <div class="slider-wrapper" id="slider" aria-live="polite">
+                    <article class="slide active">
+                        <blockquote>"The space feels more like a luxury boutique hotel than a clinic. My smile transformation was handled with absolute artistic precision."</blockquote>
+                        <cite>— Elena R. (Demo)</cite>
+                    </article>
+                    <article class="slide">
+                        <blockquote>"A truly elevated approach to dental care. Dr. Mehta and her team curate an experience that is incredibly calming and highly personalized."</blockquote>
+                        <cite>— Marcus T. (Demo)</cite>
+                    </article>
+                    <article class="slide">
+                        <blockquote>"For the first time, I look forward to my dental visits. The attention to aesthetic detail here is completely unmatched in the industry."</blockquote>
+                        <cite>— Sophie L. (Demo)</cite>
+                    </article>
+                </div>
+
+                <div class="slider-controls">
+                    <button class="slider-btn" id="prevSlide" aria-label="Previous testimonial" aria-controls="slider">
+                        <span aria-hidden="true">←</span>
+                    </button>
+                    <button class="slider-btn" id="nextSlide" aria-label="Next testimonial" aria-controls="slider">
+                        <span aria-hidden="true">→</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact" id="contact">
+            <div class="container contact-grid">
+                <div class="contact-info reveal-up">
+                    <span class="eyebrow">Get in Touch</span>
+                    <h2 class="heading-section">We'd Love to<br><span class="italic-accent">Meet You.</span></h2>
+                    
+                    <div class="contact-info-blocks">
+                        <div class="info-block">
+                            <h4>Visit Us (Demo)</h4>
+                            <p>123 Wellness Blvd, Ste 400<br>Beverly Hills, CA 90210</p>
+                        </div>
+                        <div class="info-block">
+                            <h4>Connect (Demo)</h4>
+                            <p><a href="tel:5551234567">(555) 123-4567</a></p>
+                            <p><a href="mailto:hello@lunasdental.com">hello@lunasdental.com</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper reveal-up">
+                    <form class="contact-form" id="bookingForm" novalidate aria-label="Appointment Request Form">
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="name" name="name" placeholder=" " required aria-required="true">
+                            <label for="name" class="form-label">Full Name *</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="email" class="form-control" id="email" name="email" placeholder=" " required aria-required="true">
+                            <label for="email" class="form-label">Email Address *</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <select class="form-control" id="service" name="service" required aria-required="true">
+                                <option value="" disabled selected></option>
+                                <option value="consult">Aesthetic Consultation</option>
+                                <option value="whitening">Teeth Whitening</option>
+                                <option value="implants">Implants / Makeover</option>
+                                <option value="routine">Routine Care</option>
+                            </select>
+                            <label for="service" class="form-label">Treatment Interest *</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" name="message" placeholder=" " required aria-required="true"></textarea>
+                            <label for="message" class="form-label">How can we assist you? *</label>
+                        </div>
+                        
+                        <button type="submit" class="btn">Request Appointment</button>
+
+                        <!-- Success State -->
+                        <div class="form-success" id="formSuccess" aria-hidden="true">
+                            <h3 class="font-serif">Request Received</h3>
+                            <p class="text-body">Thank you for your interest. Our concierge team will contact you shortly to confirm your visit. (Demo Form)</p>
+                            <button type="button" class="btn" style="margin-top: 2rem;" id="resetForm">Send Another</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="logo" aria-label="Luna's Dental Studio Home">
+                        <span class="logo-main">Luna's</span>
+                        <span class="logo-sub">Dental Studio</span>
+                    </a>
+                    <p>Elevating dental care to an art form. Join us in our sanctuary for healthy, beautiful smiles.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Philosophy</a></li>
+                        <li><a href="#treatments">Treatments</a></li>
+                        <li><a href="#testimonials">Experiences</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Legal (Demo)</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Luna's Dental Studio. All rights reserved.</p>
+                <p>Designed for Excellence.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- VANILLA JAVASCRIPT LOGIC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // 1. STICKY NAV & MOBILE MENU
+            const navbar = document.getElementById('navbar');
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const navLinks = document.getElementById('nav-links');
+            const navItems = navLinks.querySelectorAll('a');
+
+            // Scroll Effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
+            }, { passive: true });
+
+            // Toggle Mobile Menu
+            function toggleMenu() {
+                const isOpen = document.body.classList.contains('menu-open');
+                document.body.classList.toggle('menu-open');
+                menuBtn.setAttribute('aria-expanded', !isOpen);
+            }
+
+            menuBtn.addEventListener('click', toggleMenu);
+            
+            // Close menu on link click (mobile)
+            navItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    if (document.body.classList.contains('menu-open')) toggleMenu();
+                });
+            });
+
+
+            // 2. INTERSECTION OBSERVERS (Scroll Animations)
+            const observerOptions = { root: null, rootMargin: '0px', threshold: 0.15 };
+            
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
+
+            // Select elements to animate
+            document.querySelectorAll('.reveal-up, .reveal-scale').forEach(el => {
+                revealObserver.observe(el);
+            });
+
+
+            // 3. TESTIMONIAL SLIDER
+            const sliderWrapper = document.getElementById('slider');
+            const slides = document.querySelectorAll('.slide');
+            const prevBtn = document.getElementById('prevSlide');
+            const nextBtn = document.getElementById('nextSlide');
+            let currentSlide = 0;
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            function updateSlider(newIndex) {
+                slides[currentSlide].classList.remove('active');
+                slides[currentSlide].setAttribute('aria-hidden', 'true');
+                
+                currentSlide = newIndex;
+                if (currentSlide >= slides.length) currentSlide = 0;
+                if (currentSlide < 0) currentSlide = slides.length - 1;
+                
+                slides[currentSlide].classList.add('active');
+                slides[currentSlide].setAttribute('aria-hidden', 'false');
+            }
+
+            // Initialize ARIA states
+            slides.forEach((slide, index) => {
+                slide.setAttribute('aria-hidden', index === 0 ? 'false' : 'true');
+            });
+
+            nextBtn.addEventListener('click', () => updateSlider(currentSlide + 1));
+            prevBtn.addEventListener('click', () => updateSlider(currentSlide - 1));
+
+            // Touch support for mobile swipe
+            sliderWrapper.addEventListener('touchstart', e => {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            sliderWrapper.addEventListener('touchend', e => {
+                touchEndX = e.changedTouches[0].screenX;
+                if (touchEndX < touchStartX - 50) updateSlider(currentSlide + 1); // Swipe left
+                if (touchEndX > touchStartX + 50) updateSlider(currentSlide - 1); // Swipe right
+            }, { passive: true });
+
+            // 4. FORM VALIDATION & SUCCESS STATE
+            const form = document.getElementById('bookingForm');
+            const successOverlay = document.getElementById('formSuccess');
+            const resetBtn = document.getElementById('resetForm');
+            const inputs = form.querySelectorAll('input, select, textarea');
+
+            // Float labels helper for select elements specifically
+            const serviceSelect = document.getElementById('service');
+            serviceSelect.addEventListener('change', function() {
+                if (this.value !== "") this.classList.add('has-value');
+                else this.classList.remove('has-value');
+            });
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let isValid = true;
+
+                // Basic HTML5 validation trigger via JS for custom UI
+                inputs.forEach(input => {
+                    if (input.hasAttribute('required') && !input.value.trim()) {
+                        isValid = false;
+                        input.style.borderBottomColor = 'red';
+                    } else {
+                        input.style.borderBottomColor = ''; // reset
+                    }
+                });
+
+                if (isValid) {
+                    // Show success
+                    successOverlay.classList.add('show');
+                    successOverlay.setAttribute('aria-hidden', 'false');
+                }
+            });
+
+            resetBtn.addEventListener('click', () => {
+                form.reset();
+                serviceSelect.classList.remove('has-value');
+                successOverlay.classList.remove('show');
+                successOverlay.setAttribute('aria-hidden', 'true');
+                inputs.forEach(input => input.style.borderBottomColor = '');
+            });
+
+        });
+    </script>
+</body>
+</html>
